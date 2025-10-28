@@ -125,7 +125,7 @@ export default function Index() {
 
             <div className="grid md:grid-cols-4 gap-6 max-w-4xl mx-auto">
               <Card className="p-6 bg-card/80 backdrop-blur-sm border-2">
-                <div className="text-3xl font-bold text-primary mb-1">15 лет</div>
+                <div className="text-3xl font-bold text-primary mb-1">5 лет</div>
                 <div className="text-sm text-muted-foreground">на рынке</div>
               </Card>
               <Card className="p-6 bg-card/80 backdrop-blur-sm border-2">
@@ -485,7 +485,7 @@ export default function Index() {
                 <div className="text-xl font-bold">МТК</div>
               </div>
               <p className="text-sm text-muted-foreground">
-                Московская торговая компания — лидер рынка воздухоопорных сооружений с 2009 года
+                Московская торговая компания — лидер рынка воздухоопорных сооружений с 2019 года
               </p>
             </div>
             
