@@ -98,9 +98,11 @@ export default function Index() {
             <a href="#services" className="hover:text-primary transition-colors">Услуги</a>
             <a href="#contact" className="hover:text-primary transition-colors">Контакты</a>
           </div>
-          <Button size="lg" className="hidden md:flex">
-            <Icon name="Phone" className="mr-2" size={18} />
-            Заказать звонок
+          <Button size="lg" className="hidden md:flex" asChild>
+            <a href="#contact">
+              <Icon name="Phone" className="mr-2" size={18} />
+              Заказать звонок
+            </a>
           </Button>
         </div>
       </nav>
