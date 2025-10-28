@@ -77,7 +77,7 @@ export default function Index() {
             <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
               <Icon name="Building2" size={24} className="text-primary-foreground" />
             </div>
-            <div className="text-xl font-bold">АэроСтрой</div>
+            <div className="text-xl font-bold">МТК</div>
           </div>
           <div className="hidden md:flex gap-8 text-sm font-medium">
             <a href="#catalog" className="hover:text-primary transition-colors">Каталог</a>
@@ -391,7 +391,7 @@ export default function Index() {
                     </div>
                     <div>
                       <div className="font-semibold mb-1">Email</div>
-                      <div className="text-lg">info@aerostroy.ru</div>
+                      <div className="text-lg">info@mtk-air.ru</div>
                       <div className="text-sm text-muted-foreground">Ответим в течение 2 часов</div>
                     </div>
                   </div>
@@ -482,10 +482,10 @@ export default function Index() {
                 <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
                   <Icon name="Building2" size={24} className="text-primary-foreground" />
                 </div>
-                <div className="text-xl font-bold">АэроСтрой</div>
+                <div className="text-xl font-bold">МТК</div>
               </div>
               <p className="text-sm text-muted-foreground">
-                Лидер рынка воздухоопорных сооружений в России с 2009 года
+                Московская торговая компания — лидер рынка воздухоопорных сооружений с 2009 года
               </p>
             </div>
             
@@ -511,7 +511,7 @@ export default function Index() {
               <div className="font-semibold mb-4">Контакты</div>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li>+7 (495) 123-45-67</li>
-                <li>info@aerostroy.ru</li>
+                <li>info@mtk-air.ru</li>
                 <li>Москва, Варшавское шоссе, 1</li>
               </ul>
             </div>
@@ -519,7 +519,7 @@ export default function Index() {
           
           <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="text-sm text-muted-foreground">
-              © 2024 АэроСтрой. Все права защищены.
+              © 2024 МТК. Все права защищены.
             </div>
             <div className="flex gap-3">
               <Button variant="outline" size="icon">
