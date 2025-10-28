@@ -488,6 +488,14 @@ export default function Index() {
         </div>
       </section>
 
+      <section className="py-16 bg-primary/5">
+        <div className="container mx-auto px-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-center text-primary">
+            Идеальное пространство для любых рекордов!
+          </h2>
+        </div>
+      </section>
+
       <footer className="border-t border-border py-12 bg-card/30">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
