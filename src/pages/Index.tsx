@@ -4,348 +4,470 @@ import Icon from "@/components/ui/icon";
 import { useState } from "react";
 
 export default function Index() {
-  const [activeProject, setActiveProject] = useState(0);
+  const [selectedProduct, setSelectedProduct] = useState(0);
 
-  const projects = [
+  const products = [
     {
-      title: "Спортивный комплекс",
-      size: "80 × 120 м",
-      height: "18 м",
-      material: "ПВХ мембрана 850 г/м²",
-      pressure: "250 Па",
-      image: "https://cdn.poehali.dev/projects/409a822a-2f06-41ca-93e4-9c635c1ad2bc/files/e811af22-e503-4e5b-803d-01b3d81e46a7.jpg"
+      title: "Спортивные комплексы",
+      subtitle: "Для тенниса, футбола, бассейнов",
+      price: "от 2 800 000 ₽",
+      size: "20×40 м - 100×150 м",
+      features: ["Быстрый монтаж 2-3 недели", "Круглогодичная эксплуатация", "Экономия на отоплении 60%", "Без разрешения на строительство"],
+      image: "https://cdn.poehali.dev/projects/409a822a-2f06-41ca-93e4-9c635c1ad2bc/files/abed7a46-6925-42ff-9ba1-900d783af728.jpg"
     },
     {
-      title: "Промышленный склад",
-      size: "60 × 100 м",
-      height: "12 м",
-      material: "ПВХ мембрана 1050 г/м²",
-      pressure: "300 Па",
-      image: "https://cdn.poehali.dev/projects/409a822a-2f06-41ca-93e4-9c635c1ad2bc/files/d9413a39-d2d6-4d1f-8b7a-3f08158608b2.jpg"
+      title: "Промышленные склады",
+      subtitle: "Хранение, производство, логистика",
+      price: "от 3 500 000 ₽",
+      size: "30×60 м - 120×200 м",
+      features: ["Высота до 25 метров", "Большие проёмы для техники", "Минимальные эксплуатационные расходы", "Срок службы 25+ лет"],
+      image: "https://cdn.poehali.dev/projects/409a822a-2f06-41ca-93e4-9c635c1ad2bc/files/ef17f38c-b0e9-4868-b985-6e3d9046edcb.jpg"
     },
     {
-      title: "Торговый центр",
-      size: "100 × 150 м",
-      height: "22 м",
-      material: "ETFE мембрана",
-      pressure: "280 Па",
-      image: "https://cdn.poehali.dev/projects/409a822a-2f06-41ca-93e4-9c635c1ad2bc/files/b8dd5487-d1af-416b-b1fa-46273af4adee.jpg"
+      title: "Торговые павильоны",
+      subtitle: "Рынки, выставки, ярмарки",
+      price: "от 1 900 000 ₽",
+      size: "15×30 м - 80×120 м",
+      features: ["Мобильность и переносимость", "Светопрозрачные мембраны", "Быстрая окупаемость", "Современный внешний вид"],
+      image: "https://cdn.poehali.dev/projects/409a822a-2f06-41ca-93e4-9c635c1ad2bc/files/458466aa-782d-48e3-8788-c60b5f964d26.jpg"
     }
   ];
 
-  const technologies = [
-    {
-      icon: "Wind",
-      title: "Система поддержки давления",
-      description: "Автоматическая регулировка внутреннего давления с резервированием"
-    },
-    {
-      icon: "Shield",
-      title: "Армированные мембраны",
-      description: "Многослойные материалы с повышенной прочностью до 1500 г/м²"
-    },
-    {
-      icon: "Thermometer",
-      title: "Климат-контроль",
-      description: "Интегрированные системы отопления и вентиляции"
-    },
-    {
-      icon: "Zap",
-      title: "Энергоэффективность",
-      description: "Снижение затрат на отопление до 60% по сравнению с классическими зданиями"
-    }
+  const benefits = [
+    { icon: "TrendingDown", title: "Экономия до 70%", desc: "По сравнению с капитальным строительством" },
+    { icon: "Clock", title: "Монтаж 2-4 недели", desc: "Быстрый запуск бизнеса" },
+    { icon: "Recycle", title: "Мобильность", desc: "Можно демонтировать и перенести" },
+    { icon: "Shield", title: "Надёжность", desc: "Проверенные технологии и материалы" },
+    { icon: "Snowflake", title: "-50°C до +60°C", desc: "Всесезонная эксплуатация" },
+    { icon: "Zap", title: "Энергоэффективность", desc: "Низкие затраты на отопление" }
   ];
 
-  const applications = [
-    { icon: "Dumbbell", title: "Спорт", desc: "Манежи, корты, бассейны" },
-    { icon: "Factory", title: "Промышленность", desc: "Склады, ангары, цеха" },
-    { icon: "ShoppingCart", title: "Торговля", desc: "Рынки, выставки, ярмарки" },
-    { icon: "Tractor", title: "Сельское хозяйство", desc: "Хранилища, фермы" },
-    { icon: "Plane", title: "Авиация", desc: "Ангары для самолётов" },
-    { icon: "Package", title: "Логистика", desc: "Терминалы, хабы" }
+  const services = [
+    {
+      icon: "FileText",
+      title: "Проектирование",
+      desc: "Индивидуальный проект под ваши задачи",
+      price: "Бесплатно при заказе"
+    },
+    {
+      icon: "Truck",
+      title: "Доставка",
+      desc: "Логистика по всей России",
+      price: "Рассчитывается отдельно"
+    },
+    {
+      icon: "HardHat",
+      title: "Монтаж под ключ",
+      desc: "Профессиональная бригада, полный цикл работ",
+      price: "от 850 000 ₽"
+    },
+    {
+      icon: "Wrench",
+      title: "Гарантийное обслуживание",
+      desc: "Техподдержка и сервис",
+      price: "5 лет гарантии"
+    }
   ];
 
   return (
     <div className="min-h-screen bg-background">
-      <nav className="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-sm border-b border-border">
+      <nav className="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-md border-b border-border">
         <div className="container mx-auto px-6 h-20 flex items-center justify-between">
-          <div className="text-2xl font-bold text-primary">ВОЗДУХОСТРОЙ</div>
+          <div className="flex items-center gap-2">
+            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+              <Icon name="Building2" size={24} className="text-primary-foreground" />
+            </div>
+            <div className="text-xl font-bold">АэроСтрой</div>
+          </div>
           <div className="hidden md:flex gap-8 text-sm font-medium">
-            <a href="#projects" className="hover:text-primary transition-colors">Проекты</a>
-            <a href="#tech" className="hover:text-primary transition-colors">Технологии</a>
-            <a href="#applications" className="hover:text-primary transition-colors">Применение</a>
+            <a href="#catalog" className="hover:text-primary transition-colors">Каталог</a>
+            <a href="#benefits" className="hover:text-primary transition-colors">Преимущества</a>
+            <a href="#services" className="hover:text-primary transition-colors">Услуги</a>
             <a href="#contact" className="hover:text-primary transition-colors">Контакты</a>
           </div>
-          <Button size="lg" className="hidden md:block">Консультация</Button>
+          <Button size="lg" className="hidden md:flex">
+            <Icon name="Phone" className="mr-2" size={18} />
+            Заказать звонок
+          </Button>
         </div>
       </nav>
 
-      <section className="relative h-screen flex items-center justify-center overflow-hidden pt-20">
-        <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-primary/10" />
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/30 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/20 rounded-full blur-3xl" />
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <div className="absolute inset-0 bg-gradient-to-br from-background via-primary/5 to-background" />
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-accent/15 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}} />
         </div>
         
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-4xl">
-            <h1 className="text-7xl md:text-8xl font-bold mb-6 leading-tight">
-              ВОЗДУХООПОРНЫЕ
-              <span className="block text-primary">СООРУЖЕНИЯ</span>
+        <div className="container mx-auto px-6 relative z-10 py-20">
+          <div className="max-w-5xl mx-auto text-center">
+            <div className="inline-block mb-6 px-4 py-2 bg-primary/10 rounded-full text-primary font-semibold text-sm">
+              ✓ Официальный дилер европейских производителей
+            </div>
+            <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight">
+              Воздухоопорные сооружения
+              <span className="block text-primary mt-2">для вашего бизнеса</span>
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-2xl">
-              Проектируем и строим крупномасштабные конструкции нового поколения. 
-              Надёжность, скорость монтажа, экономическая эффективность.
+            <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
+              Поставка, проектирование и монтаж под ключ. Современные технологии, выгодные цены, быстрые сроки.
             </p>
-            <div className="flex flex-wrap gap-4">
-              <Button size="lg" className="text-lg px-8 h-14">
-                <Icon name="Phone" className="mr-2" size={20} />
-                Заказать проект
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+              <Button size="lg" className="text-lg px-10 h-16 shadow-lg shadow-primary/30">
+                <Icon name="ShoppingCart" className="mr-2" size={22} />
+                Смотреть каталог
               </Button>
-              <Button size="lg" variant="outline" className="text-lg px-8 h-14">
-                <Icon name="FileText" className="mr-2" size={20} />
-                Скачать каталог
+              <Button size="lg" variant="outline" className="text-lg px-10 h-16">
+                <Icon name="Calculator" className="mr-2" size={22} />
+                Рассчитать стоимость
               </Button>
             </div>
-            
-            <div className="grid grid-cols-3 gap-8 mt-16 max-w-2xl">
-              <div>
-                <div className="text-4xl font-bold text-primary mb-2">150+</div>
-                <div className="text-sm text-muted-foreground uppercase tracking-wide">Реализованных проектов</div>
-              </div>
-              <div>
-                <div className="text-4xl font-bold text-primary mb-2">20 000м²</div>
-                <div className="text-sm text-muted-foreground uppercase tracking-wide">Максимальная площадь</div>
-              </div>
-              <div>
-                <div className="text-4xl font-bold text-primary mb-2">25 лет</div>
-                <div className="text-sm text-muted-foreground uppercase tracking-wide">Срок службы</div>
-              </div>
+
+            <div className="grid md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+              <Card className="p-6 bg-card/80 backdrop-blur-sm border-2">
+                <div className="text-3xl font-bold text-primary mb-1">15 лет</div>
+                <div className="text-sm text-muted-foreground">на рынке</div>
+              </Card>
+              <Card className="p-6 bg-card/80 backdrop-blur-sm border-2">
+                <div className="text-3xl font-bold text-primary mb-1">500+</div>
+                <div className="text-sm text-muted-foreground">объектов поставлено</div>
+              </Card>
+              <Card className="p-6 bg-card/80 backdrop-blur-sm border-2">
+                <div className="text-3xl font-bold text-primary mb-1">от 2 млн</div>
+                <div className="text-sm text-muted-foreground">стоимость под ключ</div>
+              </Card>
+              <Card className="p-6 bg-card/80 backdrop-blur-sm border-2">
+                <div className="text-3xl font-bold text-primary mb-1">2-4 недели</div>
+                <div className="text-sm text-muted-foreground">срок монтажа</div>
+              </Card>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="projects" className="py-24 bg-card/50">
+      <section id="catalog" className="py-24 bg-card/30">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold mb-4">РЕАЛИЗОВАННЫЕ ПРОЕКТЫ</h2>
-            <p className="text-xl text-muted-foreground">Масштабные конструкции по всей России</p>
+            <h2 className="text-5xl font-bold mb-4">КАТАЛОГ РЕШЕНИЙ</h2>
+            <p className="text-xl text-muted-foreground">Подберите оптимальное решение для вашего бизнеса</p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-            <div className="relative h-[500px] rounded-lg overflow-hidden group">
-              <img 
-                src={projects[activeProject].image} 
-                alt={projects[activeProject].title}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
-              <div className="absolute bottom-8 left-8 right-8">
-                <h3 className="text-3xl font-bold mb-2">{projects[activeProject].title}</h3>
+          <div className="max-w-6xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-12 items-center mb-12">
+              <div className="relative h-[500px] rounded-2xl overflow-hidden group shadow-2xl">
+                <img 
+                  src={products[selectedProduct].image} 
+                  alt={products[selectedProduct].title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
+                <div className="absolute bottom-8 left-8 right-8">
+                  <div className="inline-block px-4 py-1 bg-primary rounded-full text-sm font-semibold mb-3">
+                    {products[selectedProduct].subtitle}
+                  </div>
+                  <h3 className="text-4xl font-bold mb-2">{products[selectedProduct].title}</h3>
+                  <div className="text-2xl font-bold text-primary">{products[selectedProduct].price}</div>
+                </div>
+              </div>
+
+              <div className="space-y-6">
+                <Card className="p-6 border-2">
+                  <div className="flex items-center gap-3 mb-2">
+                    <Icon name="Ruler" className="text-primary" size={24} />
+                    <span className="font-semibold">Типовые размеры:</span>
+                  </div>
+                  <div className="text-lg">{products[selectedProduct].size}</div>
+                </Card>
+
+                <Card className="p-6 border-2">
+                  <div className="flex items-center gap-3 mb-4">
+                    <Icon name="CheckCircle2" className="text-primary" size={24} />
+                    <span className="font-semibold text-lg">Ключевые преимущества:</span>
+                  </div>
+                  <ul className="space-y-3">
+                    {products[selectedProduct].features.map((feature, idx) => (
+                      <li key={idx} className="flex items-start gap-3">
+                        <Icon name="Check" className="text-primary mt-1 flex-shrink-0" size={18} />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </Card>
+
+                <div className="flex gap-3">
+                  <Button size="lg" className="flex-1">
+                    <Icon name="MessageCircle" className="mr-2" size={20} />
+                    Получить КП
+                  </Button>
+                  <Button size="lg" variant="outline" className="flex-1">
+                    <Icon name="FileText" className="mr-2" size={20} />
+                    Подробнее
+                  </Button>
+                </div>
               </div>
             </div>
 
-            <div>
-              <div className="grid grid-cols-2 gap-6 mb-8">
-                <Card className="p-6 border-2 hover:border-primary transition-colors">
-                  <Icon name="Maximize2" className="mb-3 text-primary" size={28} />
-                  <div className="text-sm text-muted-foreground mb-1">Размеры</div>
-                  <div className="text-2xl font-bold">{projects[activeProject].size}</div>
-                </Card>
-                <Card className="p-6 border-2 hover:border-primary transition-colors">
-                  <Icon name="ArrowUp" className="mb-3 text-primary" size={28} />
-                  <div className="text-sm text-muted-foreground mb-1">Высота</div>
-                  <div className="text-2xl font-bold">{projects[activeProject].height}</div>
-                </Card>
-                <Card className="p-6 border-2 hover:border-primary transition-colors">
-                  <Icon name="Layers" className="mb-3 text-primary" size={28} />
-                  <div className="text-sm text-muted-foreground mb-1">Материал</div>
-                  <div className="text-lg font-bold">{projects[activeProject].material}</div>
-                </Card>
-                <Card className="p-6 border-2 hover:border-primary transition-colors">
-                  <Icon name="Gauge" className="mb-3 text-primary" size={28} />
-                  <div className="text-sm text-muted-foreground mb-1">Давление</div>
-                  <div className="text-2xl font-bold">{projects[activeProject].pressure}</div>
-                </Card>
-              </div>
+            <div className="grid md:grid-cols-3 gap-4">
+              {products.map((product, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setSelectedProduct(idx)}
+                  className={`p-6 rounded-xl text-left transition-all ${
+                    selectedProduct === idx 
+                      ? 'bg-primary text-primary-foreground shadow-lg scale-105' 
+                      : 'bg-card border-2 border-border hover:border-primary'
+                  }`}
+                >
+                  <div className="text-xl font-bold mb-2">{product.title}</div>
+                  <div className={`text-sm mb-3 ${selectedProduct === idx ? 'opacity-90' : 'text-muted-foreground'}`}>
+                    {product.subtitle}
+                  </div>
+                  <div className="text-lg font-bold">{product.price}</div>
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
-              <div className="flex gap-3">
-                {projects.map((project, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => setActiveProject(idx)}
-                    className={`flex-1 py-3 px-4 rounded-md transition-all font-medium ${
-                      activeProject === idx 
-                        ? 'bg-primary text-primary-foreground' 
-                        : 'bg-card border border-border hover:border-primary'
-                    }`}
-                  >
-                    {idx + 1}
-                  </button>
+      <section id="benefits" className="py-24">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold mb-4">ПОЧЕМУ ВЫБИРАЮТ НАС</h2>
+            <p className="text-xl text-muted-foreground">6 причин начать сотрудничество сегодня</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {benefits.map((benefit, idx) => (
+              <Card key={idx} className="p-8 border-2 hover:border-primary hover:shadow-xl transition-all group">
+                <div className="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary transition-colors">
+                  <Icon name={benefit.icon} className="text-primary group-hover:text-primary-foreground transition-colors" size={32} />
+                </div>
+                <h3 className="text-2xl font-bold mb-3">{benefit.title}</h3>
+                <p className="text-muted-foreground leading-relaxed">{benefit.desc}</p>
+              </Card>
+            ))}
+          </div>
+
+          <Card className="mt-16 max-w-4xl mx-auto p-10 bg-gradient-to-br from-primary/5 to-accent/5 border-2">
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div>
+                <h3 className="text-3xl font-bold mb-4">Финансовые преимущества</h3>
+                <ul className="space-y-4">
+                  <li className="flex items-start gap-3">
+                    <Icon name="DollarSign" className="text-primary mt-1" size={24} />
+                    <div>
+                      <div className="font-semibold mb-1">Рассрочка и лизинг</div>
+                      <div className="text-sm text-muted-foreground">Гибкие условия оплаты для юридических лиц</div>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Icon name="Percent" className="text-primary mt-1" size={24} />
+                    <div>
+                      <div className="font-semibold mb-1">Скидки при заказе нескольких объектов</div>
+                      <div className="text-sm text-muted-foreground">До 15% при комплексных поставках</div>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Icon name="FileCheck" className="text-primary mt-1" size={24} />
+                    <div>
+                      <div className="font-semibold mb-1">Работа по 44-ФЗ и 223-ФЗ</div>
+                      <div className="text-sm text-muted-foreground">Участие в государственных тендерах</div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div className="bg-card/80 backdrop-blur-sm rounded-xl p-8 border-2">
+                <div className="text-center mb-4">
+                  <div className="text-5xl font-bold text-primary mb-2">2 года</div>
+                  <div className="text-muted-foreground">средний срок окупаемости</div>
+                </div>
+                <div className="h-px bg-border my-6"></div>
+                <div className="space-y-3 text-sm">
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Капитальное здание</span>
+                    <span className="font-bold">5-7 лет</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Воздухоопорное</span>
+                    <span className="font-bold text-primary">2-3 года</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Card>
+        </div>
+      </section>
+
+      <section id="services" className="py-24 bg-card/30">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold mb-4">ПОЛНЫЙ ЦИКЛ УСЛУГ</h2>
+            <p className="text-xl text-muted-foreground">От идеи до запуска объекта — всё под контролем</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto mb-16">
+            {services.map((service, idx) => (
+              <Card key={idx} className="p-8 border-2 hover:border-primary transition-all text-center group">
+                <div className="w-20 h-20 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:bg-primary transition-colors">
+                  <Icon name={service.icon} className="text-primary group-hover:text-primary-foreground transition-colors" size={36} />
+                </div>
+                <h3 className="text-xl font-bold mb-3">{service.title}</h3>
+                <p className="text-muted-foreground mb-4 text-sm leading-relaxed">{service.desc}</p>
+                <div className="text-lg font-bold text-primary">{service.price}</div>
+              </Card>
+            ))}
+          </div>
+
+          <Card className="max-w-4xl mx-auto p-10 border-2">
+            <h3 className="text-3xl font-bold mb-8 text-center">Этапы работы</h3>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="space-y-6">
+                {[
+                  { num: "01", title: "Заявка", desc: "Вы оставляете заявку на сайте или звоните" },
+                  { num: "02", title: "Консультация", desc: "Менеджер уточняет задачи и требования" },
+                  { num: "03", title: "Расчёт", desc: "Подготовка коммерческого предложения" },
+                  { num: "04", title: "Договор", desc: "Согласование условий, подписание документов" }
+                ].map((step, idx) => (
+                  <div key={idx} className="flex gap-4">
+                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0 font-bold text-primary">
+                      {step.num}
+                    </div>
+                    <div>
+                      <div className="font-bold mb-1">{step.title}</div>
+                      <div className="text-sm text-muted-foreground">{step.desc}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="space-y-6">
+                {[
+                  { num: "05", title: "Проектирование", desc: "Разработка технического проекта" },
+                  { num: "06", title: "Производство", desc: "Изготовление конструкции на заводе" },
+                  { num: "07", title: "Доставка и монтаж", desc: "Логистика и установка под ключ" },
+                  { num: "08", title: "Запуск", desc: "Сдача объекта в эксплуатацию" }
+                ].map((step, idx) => (
+                  <div key={idx} className="flex gap-4">
+                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0 font-bold text-primary">
+                      {step.num}
+                    </div>
+                    <div>
+                      <div className="font-bold mb-1">{step.title}</div>
+                      <div className="text-sm text-muted-foreground">{step.desc}</div>
+                    </div>
+                  </div>
                 ))}
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="tech" className="py-24">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold mb-4">ТЕХНОЛОГИИ</h2>
-            <p className="text-xl text-muted-foreground">Передовые инженерные решения</p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            {technologies.map((tech, idx) => (
-              <Card key={idx} className="p-8 border-2 hover:border-primary transition-all group hover:scale-105">
-                <div className="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary transition-colors">
-                  <Icon name={tech.icon} className="text-primary group-hover:text-primary-foreground transition-colors" size={32} />
-                </div>
-                <h3 className="text-xl font-bold mb-3">{tech.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{tech.description}</p>
-              </Card>
-            ))}
-          </div>
-
-          <div className="mt-16 max-w-4xl mx-auto">
-            <Card className="p-8 md:p-12 bg-gradient-to-br from-primary/5 to-accent/5 border-2">
-              <div className="grid md:grid-cols-2 gap-8">
-                <div>
-                  <h3 className="text-2xl font-bold mb-4">Преимущества технологии</h3>
-                  <ul className="space-y-3">
-                    <li className="flex items-start gap-3">
-                      <Icon name="CheckCircle2" className="text-primary mt-1 flex-shrink-0" size={20} />
-                      <span>Скорость монтажа — от 2 недель</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <Icon name="CheckCircle2" className="text-primary mt-1 flex-shrink-0" size={20} />
-                      <span>Стоимость ниже на 40-60% традиционных конструкций</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <Icon name="CheckCircle2" className="text-primary mt-1 flex-shrink-0" size={20} />
-                      <span>Мобильность — возможность демонтажа и переноса</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <Icon name="CheckCircle2" className="text-primary mt-1 flex-shrink-0" size={20} />
-                      <span>Эксплуатация при температуре от -50°C до +60°C</span>
-                    </li>
-                  </ul>
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold mb-4">Системы безопасности</h3>
-                  <ul className="space-y-3">
-                    <li className="flex items-start gap-3">
-                      <Icon name="Shield" className="text-accent mt-1 flex-shrink-0" size={20} />
-                      <span>Резервные воздуходувки с автозапуском</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <Icon name="Shield" className="text-accent mt-1 flex-shrink-0" size={20} />
-                      <span>Аварийные выходы с системой шлюзования</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <Icon name="Shield" className="text-accent mt-1 flex-shrink-0" size={20} />
-                      <span>Датчики давления и автоматика контроля</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <Icon name="Shield" className="text-accent mt-1 flex-shrink-0" size={20} />
-                      <span>Огнестойкие материалы класса G1/B1</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      <section id="applications" className="py-24 bg-card/50">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold mb-4">ОБЛАСТИ ПРИМЕНЕНИЯ</h2>
-            <p className="text-xl text-muted-foreground">Универсальные решения для любых задач</p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {applications.map((app, idx) => (
-              <Card key={idx} className="p-8 border-2 hover:border-primary transition-all group cursor-pointer hover:scale-105">
-                <Icon name={app.icon} className="text-primary mb-4 group-hover:scale-110 transition-transform" size={40} />
-                <h3 className="text-2xl font-bold mb-2">{app.title}</h3>
-                <p className="text-muted-foreground">{app.desc}</p>
-              </Card>
-            ))}
-          </div>
+          </Card>
         </div>
       </section>
 
       <section id="contact" className="py-24">
         <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-5xl font-bold mb-4">СВЯЗАТЬСЯ С НАМИ</h2>
-              <p className="text-xl text-muted-foreground">Получите консультацию инженера в течение 24 часов</p>
-            </div>
-
-            <Card className="p-8 md:p-12 border-2">
-              <div className="grid md:grid-cols-2 gap-8 mb-8">
-                <div>
-                  <label className="text-sm font-medium mb-2 block">Ваше имя</label>
-                  <input 
-                    type="text" 
-                    className="w-full px-4 py-3 bg-background border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-                    placeholder="Иван Петров"
-                  />
+          <div className="max-w-5xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-12">
+              <div>
+                <h2 className="text-5xl font-bold mb-6">Получите персональное предложение</h2>
+                <p className="text-xl text-muted-foreground mb-8">
+                  Оставьте заявку, и наш менеджер подготовит для вас расчёт стоимости с учётом всех особенностей проекта
+                </p>
+                
+                <div className="space-y-6 mb-8">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Icon name="Phone" className="text-primary" size={24} />
+                    </div>
+                    <div>
+                      <div className="font-semibold mb-1">Телефон</div>
+                      <div className="text-lg">+7 (495) 123-45-67</div>
+                      <div className="text-sm text-muted-foreground">Звоните с 9:00 до 18:00 (МСК)</div>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Icon name="Mail" className="text-primary" size={24} />
+                    </div>
+                    <div>
+                      <div className="font-semibold mb-1">Email</div>
+                      <div className="text-lg">info@aerostroy.ru</div>
+                      <div className="text-sm text-muted-foreground">Ответим в течение 2 часов</div>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Icon name="MapPin" className="text-primary" size={24} />
+                    </div>
+                    <div>
+                      <div className="font-semibold mb-1">Офис</div>
+                      <div className="text-lg">Москва, Варшавское шоссе, 1</div>
+                      <div className="text-sm text-muted-foreground">БЦ "Стройкомплекс"</div>
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <label className="text-sm font-medium mb-2 block">Телефон</label>
-                  <input 
-                    type="tel" 
-                    className="w-full px-4 py-3 bg-background border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-                    placeholder="+7 (___) ___-__-__"
-                  />
+              </div>
+
+              <Card className="p-8 border-2 shadow-xl">
+                <h3 className="text-2xl font-bold mb-6">Быстрая заявка</h3>
+                
+                <div className="space-y-4 mb-6">
+                  <div>
+                    <label className="text-sm font-medium mb-2 block">Ваше имя *</label>
+                    <input 
+                      type="text" 
+                      className="w-full px-4 py-3 bg-background border-2 border-input rounded-lg focus:outline-none focus:border-primary transition-colors"
+                      placeholder="Иван Петров"
+                    />
+                  </div>
+                  
+                  <div>
+                    <label className="text-sm font-medium mb-2 block">Телефон *</label>
+                    <input 
+                      type="tel" 
+                      className="w-full px-4 py-3 bg-background border-2 border-input rounded-lg focus:outline-none focus:border-primary transition-colors"
+                      placeholder="+7 (___) ___-__-__"
+                    />
+                  </div>
+                  
+                  <div>
+                    <label className="text-sm font-medium mb-2 block">Email</label>
+                    <input 
+                      type="email" 
+                      className="w-full px-4 py-3 bg-background border-2 border-input rounded-lg focus:outline-none focus:border-primary transition-colors"
+                      placeholder="email@company.ru"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="text-sm font-medium mb-2 block">Тип объекта</label>
+                    <select className="w-full px-4 py-3 bg-background border-2 border-input rounded-lg focus:outline-none focus:border-primary transition-colors">
+                      <option>Спортивный комплекс</option>
+                      <option>Промышленный склад</option>
+                      <option>Торговый павильон</option>
+                      <option>Другое</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="text-sm font-medium mb-2 block">Комментарий</label>
+                    <textarea 
+                      rows={3}
+                      className="w-full px-4 py-3 bg-background border-2 border-input rounded-lg focus:outline-none focus:border-primary transition-colors resize-none"
+                      placeholder="Опишите ваши задачи и пожелания..."
+                    />
+                  </div>
                 </div>
-              </div>
-              
-              <div className="mb-8">
-                <label className="text-sm font-medium mb-2 block">Email</label>
-                <input 
-                  type="email" 
-                  className="w-full px-4 py-3 bg-background border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-                  placeholder="email@company.ru"
-                />
-              </div>
 
-              <div className="mb-8">
-                <label className="text-sm font-medium mb-2 block">Сообщение</label>
-                <textarea 
-                  rows={5}
-                  className="w-full px-4 py-3 bg-background border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-primary resize-none"
-                  placeholder="Расскажите о вашем проекте..."
-                />
-              </div>
+                <Button size="lg" className="w-full text-lg h-14">
+                  <Icon name="Send" className="mr-2" size={20} />
+                  Отправить заявку
+                </Button>
 
-              <Button size="lg" className="w-full text-lg h-14">
-                <Icon name="Send" className="mr-2" size={20} />
-                Отправить заявку
-              </Button>
-            </Card>
-
-            <div className="grid md:grid-cols-3 gap-6 mt-12">
-              <Card className="p-6 text-center border-2">
-                <Icon name="Phone" className="mx-auto mb-3 text-primary" size={32} />
-                <div className="font-medium mb-1">Телефон</div>
-                <div className="text-muted-foreground">+7 (495) 123-45-67</div>
-              </Card>
-              <Card className="p-6 text-center border-2">
-                <Icon name="Mail" className="mx-auto mb-3 text-primary" size={32} />
-                <div className="font-medium mb-1">Email</div>
-                <div className="text-muted-foreground">info@vozduhostroy.ru</div>
-              </Card>
-              <Card className="p-6 text-center border-2">
-                <Icon name="MapPin" className="mx-auto mb-3 text-primary" size={32} />
-                <div className="font-medium mb-1">Офис</div>
-                <div className="text-muted-foreground">Москва, ул. Промышленная</div>
+                <div className="mt-4 text-xs text-muted-foreground text-center">
+                  Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
+                </div>
               </Card>
             </div>
           </div>
@@ -354,14 +476,54 @@ export default function Index() {
 
       <footer className="border-t border-border py-12 bg-card/30">
         <div className="container mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            <div className="text-2xl font-bold text-primary">ВОЗДУХОСТРОЙ</div>
-            <div className="text-sm text-muted-foreground">
-              © 2024 Воздухоопорные сооружения. Все права защищены.
+          <div className="grid md:grid-cols-4 gap-8 mb-8">
+            <div>
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+                  <Icon name="Building2" size={24} className="text-primary-foreground" />
+                </div>
+                <div className="text-xl font-bold">АэроСтрой</div>
+              </div>
+              <p className="text-sm text-muted-foreground">
+                Лидер рынка воздухоопорных сооружений в России с 2009 года
+              </p>
             </div>
-            <div className="flex gap-4">
+            
+            <div>
+              <div className="font-semibold mb-4">Каталог</div>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li><a href="#" className="hover:text-primary transition-colors">Спортивные комплексы</a></li>
+                <li><a href="#" className="hover:text-primary transition-colors">Промышленные склады</a></li>
+                <li><a href="#" className="hover:text-primary transition-colors">Торговые павильоны</a></li>
+              </ul>
+            </div>
+            
+            <div>
+              <div className="font-semibold mb-4">Компания</div>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li><a href="#" className="hover:text-primary transition-colors">О нас</a></li>
+                <li><a href="#" className="hover:text-primary transition-colors">Наши проекты</a></li>
+                <li><a href="#" className="hover:text-primary transition-colors">Сертификаты</a></li>
+              </ul>
+            </div>
+            
+            <div>
+              <div className="font-semibold mb-4">Контакты</div>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li>+7 (495) 123-45-67</li>
+                <li>info@aerostroy.ru</li>
+                <li>Москва, Варшавское шоссе, 1</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div className="text-sm text-muted-foreground">
+              © 2024 АэроСтрой. Все права защищены.
+            </div>
+            <div className="flex gap-3">
               <Button variant="outline" size="icon">
-                <Icon name="Facebook" size={20} />
+                <Icon name="Youtube" size={20} />
               </Button>
               <Button variant="outline" size="icon">
                 <Icon name="Instagram" size={20} />
