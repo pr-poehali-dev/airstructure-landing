@@ -516,7 +516,7 @@ export default function Index() {
           
           <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="text-sm text-muted-foreground">
-              © 2024 МТК. Все права защищены.
+              © 2019-2025 МТК. Все права защищены.
             </div>
             <div className="flex gap-3">
               <Button variant="outline" size="icon">
