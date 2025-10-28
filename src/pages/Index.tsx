@@ -517,7 +517,6 @@ export default function Index() {
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li><a href="#" className="hover:text-primary transition-colors">О нас</a></li>
                 <li><a href="#" className="hover:text-primary transition-colors">Наши проекты</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Сертификаты</a></li>
               </ul>
             </div>
             
