@@ -34,7 +34,7 @@ export default function Index() {
       price: "от 5 000 000 ₽",
       size: "30×60 м - 120×200 м",
       features: ["Высота до 25 метров", "Большие проёмы для техники", "Минимальные эксплуатационные расходы", "Срок службы 25+ лет"],
-      image: "https://cdn.poehali.dev/files/94143a89-5798-44d2-8057-44e82c0d6ccb.jpeg"
+      image: "https://cdn.poehali.dev/files/c38c0445-c249-4c96-99fb-f1f32da45f34.jpg"
     },
     {
       title: "Торговые павильоны",
