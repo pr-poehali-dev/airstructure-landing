@@ -42,7 +42,7 @@ export default function Index() {
       price: "от 5 000 000 ₽",
       size: "15×30 м - 80×120 м",
       features: ["Мобильность и переносимость", "Светопрозрачные мембраны", "Быстрая окупаемость", "Современный внешний вид"],
-      image: "https://cdn.poehali.dev/files/7f75df6f-e945-4fda-bf0f-34205752838b.jpeg"
+      image: "https://cdn.poehali.dev/files/dcfd7d8e-ac64-4c77-80cc-f00f555c75b0.png"
     }
   ];
 
