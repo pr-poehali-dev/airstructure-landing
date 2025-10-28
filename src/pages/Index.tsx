@@ -26,7 +26,7 @@ export default function Index() {
       price: "от 5 000 000 ₽",
       size: "20×40 м - 100×150 м",
       features: ["Быстрый монтаж 2-3 недели", "Круглогодичная эксплуатация", "Экономия на отоплении 60%", "Без разрешения на строительство"],
-      image: "https://cdn.poehali.dev/files/a4316f9c-4a54-4dd4-91ac-361f996a0eae.jpeg"
+      image: "https://cdn.poehali.dev/files/8f2b5702-85e5-465c-8645-b4b4a7544766.png"
     },
     {
       title: "Промышленные склады",
