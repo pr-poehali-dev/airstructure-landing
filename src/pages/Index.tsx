@@ -123,13 +123,17 @@ export default function Index() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-              <Button size="lg" className="text-lg px-10 h-16 shadow-lg shadow-primary/30">
-                <Icon name="ShoppingCart" className="mr-2" size={22} />
-                Смотреть каталог
+              <Button size="lg" className="text-lg px-10 h-16 shadow-lg shadow-primary/30" asChild>
+                <a href="#catalog">
+                  <Icon name="ShoppingCart" className="mr-2" size={22} />
+                  Смотреть каталог
+                </a>
               </Button>
-              <Button size="lg" variant="outline" className="text-lg px-10 h-16">
-                <Icon name="Calculator" className="mr-2" size={22} />
-                Рассчитать стоимость
+              <Button size="lg" variant="outline" className="text-lg px-10 h-16" asChild>
+                <a href="#contact">
+                  <Icon name="Calculator" className="mr-2" size={22} />
+                  Рассчитать стоимость
+                </a>
               </Button>
             </div>
 
