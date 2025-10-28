@@ -129,7 +129,7 @@ export default function Index() {
                 <div className="text-sm text-muted-foreground">на рынке</div>
               </Card>
               <Card className="p-6 bg-card/80 backdrop-blur-sm border-2">
-                <div className="text-3xl font-bold text-primary mb-1">500+</div>
+                <div className="text-3xl font-bold text-primary mb-1">50+</div>
                 <div className="text-sm text-muted-foreground">объектов поставлено</div>
               </Card>
               <Card className="p-6 bg-card/80 backdrop-blur-sm border-2">
