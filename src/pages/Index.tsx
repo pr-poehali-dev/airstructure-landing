@@ -470,30 +470,6 @@ export default function Index() {
                 </div>
               </Card>
             </div>
-
-            <div className="mt-12">
-              <Card className="overflow-hidden border-2">
-                <div className="relative w-full h-[400px]">
-                  <iframe
-                    src="https://yandex.ru/map-widget/v1/?um=constructor%3A2fc3c8e2d7c0e8a3b2b3e8a5c8e2d7c0&amp;source=constructor"
-                    width="100%"
-                    height="400"
-                    frameBorder="0"
-                    className="w-full h-full"
-                    title="Карта офиса МТК"
-                  />
-                </div>
-                <div className="p-6 bg-card/50 backdrop-blur-sm border-t border-border">
-                  <div className="flex items-center gap-3">
-                    <Icon name="MapPin" className="text-primary" size={24} />
-                    <div>
-                      <div className="font-semibold">Наш офис на карте</div>
-                      <div className="text-sm text-muted-foreground">115477, г. Москва, пр-кт Пролетарский, д. 26, корп. 4</div>
-                    </div>
-                  </div>
-                </div>
-              </Card>
-            </div>
           </div>
         </div>
       </section>
