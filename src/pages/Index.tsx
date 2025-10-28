@@ -402,8 +402,8 @@ export default function Index() {
                     </div>
                     <div>
                       <div className="font-semibold mb-1">Офис</div>
-                      <div className="text-lg">Москва, Варшавское шоссе, 1</div>
-                      <div className="text-sm text-muted-foreground">БЦ "Стройкомплекс"</div>
+                      <div className="text-lg">115477, г. Москва</div>
+                      <div className="text-sm text-muted-foreground">пр-кт Пролетарский, д. 26, корп. 4</div>
                     </div>
                   </div>
                 </div>
@@ -512,7 +512,7 @@ export default function Index() {
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li>+7 (495) 123-45-67</li>
                 <li>info@mtkcompany.ru</li>
-                <li>Москва, Варшавское шоссе, 1</li>
+                <li>115477, г. Москва, пр-кт Пролетарский, д. 26, корп. 4</li>
               </ul>
             </div>
           </div>
