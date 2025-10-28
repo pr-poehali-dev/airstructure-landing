@@ -114,7 +114,7 @@ export default function Index() {
         
         <div className="container mx-auto px-6 relative z-10 py-20">
           <div className="max-w-5xl mx-auto text-center">
-            <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight">
+            <h1 className="text-4xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight">
               Воздухоопорные сооружения
               <span className="block text-primary mt-2">для вашего бизнеса</span>
             </h1>
