@@ -506,9 +506,9 @@ export default function Index() {
             <div>
               <div className="font-semibold mb-4">Каталог</div>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><a href="#" className="hover:text-primary transition-colors">Спортивные комплексы</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Промышленные склады</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Торговые павильоны</a></li>
+                <li><a href="#catalog" className="hover:text-primary transition-colors">Спортивные комплексы</a></li>
+                <li><a href="#catalog" className="hover:text-primary transition-colors">Промышленные склады</a></li>
+                <li><a href="#catalog" className="hover:text-primary transition-colors">Торговые павильоны</a></li>
               </ul>
             </div>
             
