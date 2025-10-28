@@ -23,7 +23,7 @@ export default function Index() {
     {
       title: "Спортивные комплексы",
       subtitle: "Для тенниса, футбола, бассейнов",
-      price: "от 2 800 000 ₽",
+      price: "от 5 000 000 ₽",
       size: "20×40 м - 100×150 м",
       features: ["Быстрый монтаж 2-3 недели", "Круглогодичная эксплуатация", "Экономия на отоплении 60%", "Без разрешения на строительство"],
       image: "https://cdn.poehali.dev/files/a4316f9c-4a54-4dd4-91ac-361f996a0eae.jpeg"
@@ -31,7 +31,7 @@ export default function Index() {
     {
       title: "Промышленные склады",
       subtitle: "Хранение, производство, логистика",
-      price: "от 3 500 000 ₽",
+      price: "от 5 000 000 ₽",
       size: "30×60 м - 120×200 м",
       features: ["Высота до 25 метров", "Большие проёмы для техники", "Минимальные эксплуатационные расходы", "Срок службы 25+ лет"],
       image: "https://cdn.poehali.dev/files/94143a89-5798-44d2-8057-44e82c0d6ccb.jpeg"
@@ -39,7 +39,7 @@ export default function Index() {
     {
       title: "Торговые павильоны",
       subtitle: "Рынки, выставки, ярмарки",
-      price: "от 1 900 000 ₽",
+      price: "от 5 000 000 ₽",
       size: "15×30 м - 80×120 м",
       features: ["Мобильность и переносимость", "Светопрозрачные мембраны", "Быстрая окупаемость", "Современный внешний вид"],
       image: "https://cdn.poehali.dev/files/7f75df6f-e945-4fda-bf0f-34205752838b.jpeg"
@@ -143,7 +143,7 @@ export default function Index() {
                 <div className="text-sm text-muted-foreground">объектов поставлено</div>
               </Card>
               <Card className="p-6 bg-card/80 backdrop-blur-sm border-2">
-                <div className="text-3xl font-bold text-primary mb-1">от 2 млн</div>
+                <div className="text-3xl font-bold text-primary mb-1">от 5 млн</div>
                 <div className="text-sm text-muted-foreground">стоимость под ключ</div>
               </Card>
               <Card className="p-6 bg-card/80 backdrop-blur-sm border-2">
