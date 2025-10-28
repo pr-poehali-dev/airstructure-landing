@@ -391,7 +391,7 @@ export default function Index() {
                     </div>
                     <div>
                       <div className="font-semibold mb-1">Email</div>
-                      <div className="text-lg">info@mtk-air.ru</div>
+                      <div className="text-lg">info@mtkcompany.ru</div>
                       <div className="text-sm text-muted-foreground">Ответим в течение 2 часов</div>
                     </div>
                   </div>
@@ -511,7 +511,7 @@ export default function Index() {
               <div className="font-semibold mb-4">Контакты</div>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li>+7 (495) 123-45-67</li>
-                <li>info@mtk-air.ru</li>
+                <li>info@mtkcompany.ru</li>
                 <li>Москва, Варшавское шоссе, 1</li>
               </ul>
             </div>
