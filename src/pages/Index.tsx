@@ -101,9 +101,6 @@ export default function Index() {
         
         <div className="container mx-auto px-6 relative z-10 py-20">
           <div className="max-w-5xl mx-auto text-center">
-            <div className="inline-block mb-6 px-4 py-2 bg-primary/10 rounded-full text-primary font-semibold text-sm">
-              ✓ Официальный дилер европейских производителей
-            </div>
             <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight">
               Воздухоопорные сооружения
               <span className="block text-primary mt-2">для вашего бизнеса</span>
