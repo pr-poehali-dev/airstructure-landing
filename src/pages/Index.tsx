@@ -13,7 +13,7 @@ export default function Index() {
       price: "от 2 800 000 ₽",
       size: "20×40 м - 100×150 м",
       features: ["Быстрый монтаж 2-3 недели", "Круглогодичная эксплуатация", "Экономия на отоплении 60%", "Без разрешения на строительство"],
-      image: "https://cdn.poehali.dev/projects/409a822a-2f06-41ca-93e4-9c635c1ad2bc/files/abed7a46-6925-42ff-9ba1-900d783af728.jpg"
+      image: "https://cdn.poehali.dev/files/a4316f9c-4a54-4dd4-91ac-361f996a0eae.jpeg"
     },
     {
       title: "Промышленные склады",
@@ -21,7 +21,7 @@ export default function Index() {
       price: "от 3 500 000 ₽",
       size: "30×60 м - 120×200 м",
       features: ["Высота до 25 метров", "Большие проёмы для техники", "Минимальные эксплуатационные расходы", "Срок службы 25+ лет"],
-      image: "https://cdn.poehali.dev/projects/409a822a-2f06-41ca-93e4-9c635c1ad2bc/files/ef17f38c-b0e9-4868-b985-6e3d9046edcb.jpg"
+      image: "https://cdn.poehali.dev/files/94143a89-5798-44d2-8057-44e82c0d6ccb.jpeg"
     },
     {
       title: "Торговые павильоны",
@@ -29,7 +29,7 @@ export default function Index() {
       price: "от 1 900 000 ₽",
       size: "15×30 м - 80×120 м",
       features: ["Мобильность и переносимость", "Светопрозрачные мембраны", "Быстрая окупаемость", "Современный внешний вид"],
-      image: "https://cdn.poehali.dev/projects/409a822a-2f06-41ca-93e4-9c635c1ad2bc/files/458466aa-782d-48e3-8788-c60b5f964d26.jpg"
+      image: "https://cdn.poehali.dev/files/7f75df6f-e945-4fda-bf0f-34205752838b.jpeg"
     }
   ];
 
