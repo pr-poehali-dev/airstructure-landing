@@ -209,13 +209,11 @@ export default function Index() {
                 </Card>
 
                 <div className="flex gap-3">
-                  <Button size="lg" className="flex-1">
-                    <Icon name="MessageCircle" className="mr-2" size={20} />
-                    Получить КП
-                  </Button>
-                  <Button size="lg" variant="outline" className="flex-1">
-                    <Icon name="FileText" className="mr-2" size={20} />
-                    Подробнее
+                  <Button size="lg" className="w-full" asChild>
+                    <a href="#contact">
+                      <Icon name="MessageCircle" className="mr-2" size={20} />
+                      Получить КП
+                    </a>
                   </Button>
                 </div>
               </div>
