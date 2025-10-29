@@ -1,11 +1,19 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Icon from "@/components/ui/icon";
-import { useState, useEffect } from "react";
+import { useState, useEffect, FormEvent } from "react";
 
 export default function Index() {
   const [selectedProduct, setSelectedProduct] = useState(0);
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,6 +25,34 @@ export default function Index() {
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      const response = await fetch('https://functions.poehali.dev/ef14a0b8-6797-421e-b780-5d52573d00a0', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        setFormData({ name: '', phone: '', email: '', message: '' });
+        setTimeout(() => setSubmitStatus('idle'), 5000);
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const products = [
@@ -426,11 +462,14 @@ export default function Index() {
               <Card className="p-8 border-2 shadow-xl">
                 <h3 className="text-2xl font-bold mb-6">Быстрая заявка</h3>
                 
-                <div className="space-y-4 mb-6">
+                <form onSubmit={handleSubmit} className="space-y-4 mb-6">
                   <div>
                     <label className="text-sm font-medium mb-2 block">Ваше имя *</label>
                     <input 
                       type="text" 
+                      required
+                      value={formData.name}
+                      onChange={(e) => setFormData({...formData, name: e.target.value})}
                       className="w-full px-4 py-3 bg-background border-2 border-input rounded-lg focus:outline-none focus:border-primary transition-colors"
                       placeholder="Иван Петров"
                     />
@@ -440,6 +479,9 @@ export default function Index() {
                     <label className="text-sm font-medium mb-2 block">Телефон *</label>
                     <input 
                       type="tel" 
+                      required
+                      value={formData.phone}
+                      onChange={(e) => setFormData({...formData, phone: e.target.value})}
                       className="w-full px-4 py-3 bg-background border-2 border-input rounded-lg focus:outline-none focus:border-primary transition-colors"
                       placeholder="+7 (___) ___-__-__"
                     />
@@ -449,39 +491,45 @@ export default function Index() {
                     <label className="text-sm font-medium mb-2 block">Email</label>
                     <input 
                       type="email" 
+                      value={formData.email}
+                      onChange={(e) => setFormData({...formData, email: e.target.value})}
                       className="w-full px-4 py-3 bg-background border-2 border-input rounded-lg focus:outline-none focus:border-primary transition-colors"
                       placeholder="email@company.ru"
                     />
                   </div>
 
                   <div>
-                    <label className="text-sm font-medium mb-2 block">Тип объекта</label>
-                    <select className="w-full px-4 py-3 bg-background border-2 border-input rounded-lg focus:outline-none focus:border-primary transition-colors">
-                      <option>Спортивный комплекс</option>
-                      <option>Промышленный склад</option>
-                      <option>Торговый павильон</option>
-                      <option>Другое</option>
-                    </select>
-                  </div>
-
-                  <div>
                     <label className="text-sm font-medium mb-2 block">Комментарий</label>
                     <textarea 
                       rows={3}
+                      value={formData.message}
+                      onChange={(e) => setFormData({...formData, message: e.target.value})}
                       className="w-full px-4 py-3 bg-background border-2 border-input rounded-lg focus:outline-none focus:border-primary transition-colors resize-none"
                       placeholder="Опишите ваши задачи и пожелания..."
                     />
                   </div>
-                </div>
 
-                <Button size="lg" className="w-full text-lg h-14">
-                  <Icon name="Send" className="mr-2" size={20} />
-                  Отправить заявку
-                </Button>
+                  <Button type="submit" size="lg" className="w-full text-lg h-14" disabled={isSubmitting}>
+                    <Icon name="Send" className="mr-2" size={20} />
+                    {isSubmitting ? 'Отправка...' : 'Отправить заявку'}
+                  </Button>
 
-                <div className="mt-4 text-xs text-muted-foreground text-center">
-                  Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
-                </div>
+                  {submitStatus === 'success' && (
+                    <div className="p-4 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-lg text-center">
+                      ✓ Заявка отправлена! Мы свяжемся с вами в ближайшее время.
+                    </div>
+                  )}
+
+                  {submitStatus === 'error' && (
+                    <div className="p-4 bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 rounded-lg text-center">
+                      Ошибка отправки. Попробуйте позже или позвоните нам.
+                    </div>
+                  )}
+
+                  <div className="text-xs text-muted-foreground text-center">
+                    Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
+                  </div>
+                </form>
               </Card>
             </div>
           </div>
